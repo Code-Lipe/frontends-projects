@@ -1,0 +1,106 @@
+:root {
+    --standard-color: #D92525;
+    --title-color: #2D2B2B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 80%;
+    display: grid;
+    margin: auto;
+    align-items: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.container .error-information {
+    width: 70%;
+}
+
+.container .error-information .error-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-top: 2rem;
+}
+
+.container .error-information .error-phrase {
+    letter-spacing: 2px;
+    font-size: 25px;
+    font-family: "eurostile", sans-serif;
+    margin-top: 1rem;
+    line-height: 2rem;
+}
+
+.container .container-button {
+    font-weight: 500;
+    margin-top: 2rem;
+}
+
+.container .container-button .error-button {
+    background-color: var(--standard-color);
+    color: #FFF;
+    padding: 1rem 3rem;
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.container .container-button .error-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--standard-color);
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.container .container-button .error-button:hover {
+    background: none;
+    box-shadow: none;
+}
+
+.container .container-button .error-button:hover::before {
+    transform: scaleX(1);
+}
+
+.container .error-image {
+    width: 35vw;
+    animation: MoveUpDown 2s ease-in infinite alternate-reverse both;
+}
+
+@keyframes MoveUpDown {
+    0% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 998px) {
+    .container {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10vh;
+    }
+}
